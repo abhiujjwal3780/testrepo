@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        .formdiv{
+             background-color: darkslategray;
+             text-align: center;
+             border: 3px solid green;
+             margin: auto;
+             padding: 20px;
+             width:40%;
+
+        }
+        .padding{
+              padding:10px;
+              margin: 10px;
+              border-radius: 25px;
+              
+        }
+
+    </style>
+</head>
+   <body>
+       <h2 id="heading" style="text-align:center;color:white;">Login Page</h2>
+       <div id="formid" class="formdiv">
+           <form >
+               <label for="email" class="padding"><span style="font-size: large;">Login</span></label><br>
+               <input class="padding" id="email" type="email" name="email" value="abhi@gmail.com"><br>
+               <label for="password" class="padding"><span style="font-size: large;">Password</span></label><br>
+               <input  class="padding" id="password" type="text" name="password" value="@abhi">
+
+           </form>
+           <div>
+               <button class="padding"style="background-color:yellow" onclick="loginfun()">Login</button>
+           </div>
+       </div>
+       <button id="logout" class="padding"style="background-color:#9d1210;margin:45%;margin-top:100px;display:none;" onclick="logoutfun()">Logout</button>
+       <script>
+           function loginfun(){
+               
+               var username=document.getElementById("email").value;
+               var password=document.getElementById("password").value;
+               var form=document.getElementById("formid");
+               var heading=document.getElementById("heading");
+               var logout=document.getElementById("logout");
+               if(username=="abhi@gmail.com" && password =="@abhi"){
+                      form.style.display="none";
+                      heading.innerHTML="You are loged in."
+                      heading.style.color="green";
+                      logout.style.display="block";
+               }else{
+                heading.innerHTML="Your email and password did not matched "
+                heading.style.color="#9f0210";
+                setTimeout(()=>{
+                    heading.innerHTML="Login Page"
+                    heading.style.color="white";
+                },2000);
+
+               }
+           }
+           function logoutfun(){
+            var form=document.getElementById("formid");
+            var logout=document.getElementById("logout");
+            var heading=document.getElementById("heading");
+            form.style.display="block";
+            logout.style.display="none";
+            heading.innerHTML="Login Page";
+
+           }
+       </script>
+    
+   </body>
+</html>
